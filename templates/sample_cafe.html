@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>카페</title>
+    <style>
+        body{
+        font-family:"맑은 고딕","고딕","굴림";
+        }
+        selection{
+            padding:20px;
+            width:600px;
+            margin:20px auto;
+            border:1px solid #ccc;
+            border-radius:10px;
+        }
+        .multi{
+            column-count:3;
+            column-rule:2px dotted #000;
+            text-align: center;
+        }
+        .multi h3{
+            break-before: column;
+        }
+        .image-thumbnail {
+            break-before: column;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+        .color{
+            background-color: #E2CCB3;
+            opacity : 0.48
+        }
+        .image-cup{
+            background-color: #E2CCB3;
+            opacity : 0.48
+        }
+        .tab { white-space: pre; }
+
+    </style>
+</head>
+<body>
+
+<!--카페 서버 테스트 하는 중... </br>-->
+
+<section>
+    <h2 align="center"><span style="font-size:38px;">JB Cafe</span></h2>
+
+    <div class="multi">
+        <h3></h3>
+        <img class="image-thumbnail" src="{{ url_for('static', filename='cafe_menu_big.JPG') }}"  style="vertical-align:middle;">
+
+        <h3></h3>
+        <br>
+         <form action = "http://localhost:5000/result" method = "POST">
+                 <p ><span style="font-size:18px">밀린 주문 수  <span class="tab">&#9;</span><input type = "text" name = "Name" size="5"/></span></p>
+                 <p ><span style="font-size:18px">근무자 수  <span class="tab">&#9;</span><span class="tab">&#9;</span><input type = "text" name = "Physics" size="5"/></span></p>
+                 <br>
+                 <div class="color">
+                     <br>
+                     <p ><span style="font-size:18px">&nbsp;&nbsp;아메리카노<span class="tab">&#9;</span><input type = "text" name = "ame" size="5"/></span></p>
+                     <p ><span style="font-size:18px">&nbsp;&nbsp;Hot 커피 <span class="tab">&#9;</span><span class="tab">&#9;</span><input type ="text" name = "HotC" size="5"/></span></p>
+                     <p ><span style="font-size:18px">&nbsp;&nbsp;Ice 커피 <span class="tab">&#9;</span><span class="tab">&#9;</span><input type ="text" name = "IceC" size="5"/></span></p>
+                     <p><span style="font-size:18px">&nbsp;&nbsp;Hot 라떼 <span class="tab">&#9;</span><span class="tab">&#9;</span><input type ="text" name = "HotL" size="5"/></span></p>
+                     <p><span style="font-size:18px">&nbsp;&nbsp;Ice 라떼 <span class="tab">&#9;</span><span class="tab">&#9;</span><input type ="text" name = "IceL" size="5"/></span></p>
+                     <p><span style="font-size:18px">&nbsp;&nbsp;프라페 <span class="tab">&#9;</span><span class="tab">&#9;</span><input type ="text" name = "fra" size="5"/></span></p>
+                     <p><span style="font-size:18px">&nbsp;&nbsp;티 &nbsp;&nbsp;<span class="tab">&#9;</span><span class="tab">&#9;</span><input type ="text" name = "tea" size="5"/></span></p>
+                     <p><span style="font-size:18px">&nbsp;&nbsp;버블 음료 <span class="tab">&#9;</span><span class="tab">&#9;</span><input type ="text" name = "bubble" size="5"/></span></p>
+                     <br>
+                 </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                 <p><input type = "submit" value = "   입력   " style="font-size:30px"/></p>
+            </form>
+
+        <h3></h3>
+        <br><br><br><br>
+        <p style="text-align: center;">
+            <span style="font-size:38px">주문해주셔서 감사합니다.</span>
+        </p>
+        <p style="text-align: center;">&nbsp;</p>
+        <p style="text-align: center;">
+            <span style="font-size:38px">고객님의
+                <span style="color:#ff8c00"> <strong>예상 대기시간</strong>
+                </span>
+            은</span>
+        </p>
+        <p style="text-align: center;">
+            <span style="font-size:38px"><u>{{wait_time}}</u>분 입니다.</span>
+        </p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <img class="image-cup" src="{{ url_for('static', filename='coffee_cup_image.png') }}"  style="float: right;" height="250px">
+    </div>
+
+</section>
+
+<!--<h3>{{numbers}}</h3>-->
+
+<!--{% for n in numbers %}-->
+<!--    {{n}}</br>-->
+<!--{% endfor %}-->
+
+<!-- 퀴즈 : 서버에 저장된 이미지를 브라우저에 표시하세요 -->
+<!--<img src="{{ url_for('static', filename='image_1.jpg') }}">-->
+<!--<img src="{{ url_for('static', filename=image_name) }}">-->
+
+
+</body>
+</html>
